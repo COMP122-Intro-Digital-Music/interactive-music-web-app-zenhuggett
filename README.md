@@ -3,7 +3,7 @@ This is a series of creative exercises designed to work together as a unified re
 
 Students will add their own content to the four sections of this project (sampler, synth, sequencer, generator) by uploading and editing media dependencies (sound files, etc.) and JSON data files describing the parameters for each section.
 
-## Project 1 - Sampler
+## Part 1 - Sampler
 
 Students will locate and edit short soundfile samples (using online tools such as AudioMass) to be triggerd at will within the project interface. Each sample will be described within a JSON file with a prescribed structure. Sample properties may include tempo and pitch information (for time scaling and transposition), as well as offsets and loop points. The sampler player will read the student-provided JSON file and create Tone.player instruments with a graphical user interface, provided the sample files listed in the JSON file are uploaded into the project directory as well.
 
@@ -30,29 +30,33 @@ For example:
 ]
 ```
 
-## Project 2 - Synthesizer
-Students will create a series of Synthesizer preset modules described in a JSON document. These synthesizers are realized using the Tone.js library (based on the Web Audio API) and will be limited to several basic synthesizer types. Students will create one or more presets sounds that will be available to each of the subsequent modules that rely on synthesizer playback (sequences and generative music system).
+## Part 2 (A and B) - Drum Patterns & Note Sequences
+Students will describe a set of short musical seequences (chord progressions and/or melodies) and a set of rhythmic patterns (individual parts of a drum pattern). These patterns may be orginal compositions or transcribed from other sources into JSON.
 
-for example:
+**Part 2-A:** For example, a set of drum patterns:
 ```json
 [
   {
-    "name" : "megasynth",
-    "type" : "AMSynth",
-    "settings" : {}
+    "name" : "kick",
+    "pitch" : "A3",
+    "pattern" : "1000",
+    "synth" : "mySampler"
   },
   {
-    "name" : "FM Aliens",
-    "type" : "FMSynth",
-    "settings" : {}
+    "name" : "claps",
+    "pitch" : "C4",
+    "pattern" : "0000100000001000",
+    "synth" : "mySampler"
+  },
+  {
+    "name" : "hi-hat",
+    "pitch" : "F4",
+    "pattern" : "00010101110111010100110110010",
+    "synth" : "mySampler"
   }
 ]
 ```
-
-## Project 3 - Sequencer & Beat Generator
-Students will describe a set of short musical seequences (chord progressions and/or melodies) and a set of rhythmic patterns (individual parts of a drum pattern). These patterns may be orginal compositions or transcribed from other sources into JSON.
-
-For example, a set of sequences:
+**Part 2-b:** and a set of note sequences:
 ```json
 [
   {
@@ -86,30 +90,27 @@ For example, a set of sequences:
 ]
 
 ```
-and a set of beat patterns:
+
+## Part 3 - Synthesizer
+Students will create a series of Synthesizer preset modules described in a JSON document. These synthesizers are realized using the Tone.js library (based on the Web Audio API) and will be limited to several basic synthesizer types. Students will create one or more presets sounds that will be available to each of the subsequent modules that rely on synthesizer playback (sequences and generative music system).
+
+for example:
 ```json
 [
   {
-    "name" : "kick",
-    "pitch" : "A3",
-    "pattern" : "1000",
-    "synth" : "mySampler"
+    "name" : "megasynth",
+    "type" : "AMSynth",
+    "settings" : {}
   },
   {
-    "name" : "claps",
-    "pitch" : "C4",
-    "pattern" : "0000100000001000",
-    "synth" : "mySampler"
-  },
-  {
-    "name" : "hi-hat",
-    "pitch" : "F4",
-    "pattern" : "00010101110111010100110110010",
-    "synth" : "mySampler"
+    "name" : "FM Aliens",
+    "type" : "FMSynth",
+    "settings" : {}
   }
 ]
 ```
-## Project 4 - Algorithmic Music Generator
+
+## Part 4 - Algorithmic Music Generator
 Create a JSON describing Markov probability tables for both rhythm and pitch. The graph may be derived from an existing tune or may be entirely invented by the student. It is possible to create multiple Markov generators and to play them simultaneously (in time with the central Transport clock).
 
 For example:

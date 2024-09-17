@@ -1,1 +1,4 @@
-# Upload your samples here
+# Samples folder
+
+upload your samples to this folder
+
