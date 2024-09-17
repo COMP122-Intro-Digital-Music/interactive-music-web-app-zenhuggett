@@ -1,7 +1,7 @@
 ## COMP 122 Project Part 3 - Beats & Sequences
 *Design beat patterns and encode short sequences*
 
-**Part 1 - Beats**
+**Part A - Beats**
 
 Beat patterns in this project are once again, an [array] of {objects}. Each object represents a single-instrument pattern on a constant sixteenth-note grid. Properties of a pattern:
 - "name" : call it something obvious. This is for conveniece
@@ -18,7 +18,7 @@ Beat patterns in this project are once again, an [array] of {objects}. Each obje
       "F4" : "HiHat_Closed.wav",
       "F#4" : "HiHat_Open.wav"
 
-- "pattern" : a string of characters representing places along the 16th-note grid. A '1' will play a note on that 16th. Any other character is treated as a rest. The pattern given as a string (of any length) is treated as a constant stream of 16th-note pulses, and will loop at whatever length is given. In other words, a pattern of four charachters will repeat every four 16ths, or once per beat. Only characters that are a '1' in the string will activate a note on their subdivision. The pattern "1000" will play the first 16th of every beat (in 4/4 time). The pattern "0000100000001000" plays on '2' and '4' in every measure.
+- "pattern" : a string of characters representing places along the 16th-note grid. A '1' will play a note on that 16th. Any other character is treated as a rest. The pattern given as a string (of any length) is treated as a constant stream of 16th-note pulses, and will loop at whatever length is given. In other words, a pattern of four charachters will repeat every four 16ths, or once per beat. Only characters that are a '1' in the string will activate a note on their subdivision. The pattern "1..." will play the first 16th of every beat (in 4/4 time). The pattern "0...1...0...1..." plays on '2' and '4' in every measure.
 
 **Example:** A basic House beat with an irregular hi-hat pattern:
 ```
@@ -26,27 +26,27 @@ Beat patterns in this project are once again, an [array] of {objects}. Each obje
   {
     "name" : "kick",
     "pitch" : "A3",
-    "pattern" : "1000",
+    "pattern" : "1...",
     "synth" : "mySampler"
   },
   {
     "name" : "claps",
     "pitch" : "C4",
-    "pattern" : "0000100000001000",
+    "pattern" : "0...1...0...1...",
     "synth" : "mySampler"
   },
   {
     "name" : "hi-hat",
     "pitch" : "F4",
-    "pattern" : "00010101110111010100110110010",
+    "pattern" : "...1.1.111.111.1.1..11.11..1.",
     "synth" : "mySampler"
   }
 ]
 ```
 
-**Part 2 - Sequences**
+**Part B - Sequences**
 
-In this project, you will also compose or arrange a set of short musical sequences. They may be primarily melodic, but they can also be harmonic in nature (chord progressions). We will again construct an array of objects, each of which represents an individual sequence. The player app can then launch these sequences as stand-alone musical objects. They will play in time with the Transport's metrical grid, so that beats, samples, and sequences can all play along together.
+In this exercise, you will compose or arrange a set of short musical patterns by encoding note sequences as data in JSON format. They may be primarily melodic, but they can also be harmonic in nature (chord progressions). We will again construct an array of objects, each of which represents an individual sequence. The player app can then launch these sequences as stand-alone musical objects. They will play in time with the Transport's metrical grid, so that beats, samples, and sequences can all play along together in sync.
 
 Each sequence object has a pre-defined structure:
 

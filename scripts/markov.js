@@ -87,6 +87,7 @@ function makeGraph(obj) {
   }
 }
 
+/** move this funciton to the GUI */
 //the markov() function chooses a new value from the ".graph" object based on the current value of the ".next" property of a given graph object
 function markov(obj) {
   //console.log(obj.state); // show the next value in the console
